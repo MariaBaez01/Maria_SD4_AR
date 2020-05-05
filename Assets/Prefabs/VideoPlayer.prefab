@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3993884769399563476}
   - component: {fileID: 3993884769399563477}
   - component: {fileID: 3993884769399563478}
+  - component: {fileID: 8869058543735928317}
   m_Layer: 0
-  m_Name: PlacedTV3
+  m_Name: VideoPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,3 +128,19 @@ VideoPlayer:
   m_Looping: 1
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!114 &8869058543735928317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993884769399563479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730dae1f1d66fae4ca641c92455bc53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicOnImage: {fileID: 21300000, guid: 942bf6e498338a94bb35b046ce034524, type: 3}
+  musicOffImage: {fileID: 21300000, guid: 772a5488cd4030847b1afcc70281fbfe, type: 3}
+  myimage: {fileID: 9218531465999682981, guid: 268b288f0e48d584aacfd56587888460, type: 3}
+  videoClip: {fileID: 32900000, guid: 5ff5107faf68c784b97d12de3de08c0c, type: 3}
