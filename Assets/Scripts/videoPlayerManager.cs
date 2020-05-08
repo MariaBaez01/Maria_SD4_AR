@@ -8,7 +8,7 @@ public class videoPlayerManager : MonoBehaviour
 {
     public Sprite musicOnImage;
     public Sprite musicOffImage;
-    public GameObject myimage;
+    Button soundButton;
 
     public UnityEngine.Video.VideoClip videoClip;
 
@@ -16,6 +16,7 @@ public class videoPlayerManager : MonoBehaviour
     {
         var videoPlayer = gameObject.AddComponent<UnityEngine.Video.VideoPlayer>();
         var audioSource = gameObject.AddComponent<AudioSource>();
+        soundButton = GameObject.Find("SoundButton").GetComponent<Button>();
 
         videoPlayer.playOnAwake = false;
         videoPlayer.clip = videoClip;
@@ -24,31 +25,35 @@ public class videoPlayerManager : MonoBehaviour
         videoPlayer.targetMaterialProperty = "_MainTex";
         videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
         videoPlayer.SetTargetAudioSource(0, audioSource);
+        
 
     }
     bool isMuted = false;
 
-    void Update()
-    {
+     void Update()
+     {
 
 
         if (CrossPlatformInputManager.GetButtonDown("Sound"))
         {
             var vp = GetComponent<UnityEngine.Video.VideoPlayer>();
-
+            
             if (vp.isPlaying && isMuted == false)
             {
                 vp.SetDirectAudioMute(0, !isMuted);
                 isMuted = true;
-                myimage.GetComponent<Image>().sprite = musicOnImage;
+
+                soundButton.image.sprite = musicOnImage;
             }
             else
             {
                 vp.SetDirectAudioMute(0, false);
                 isMuted = false;
-                myimage.GetComponent<Image>().sprite = musicOffImage;
+                soundButton.image.sprite = musicOffImage;
             }
         }
 
     }
+
+
 }
