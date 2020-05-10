@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ImageManager : MonoBehaviour
 {
@@ -14,21 +15,21 @@ public class ImageManager : MonoBehaviour
     [SerializeField]
     private Button mainScreenButton;
 
+    [SerializeField]
+    GameObject textVideoObject;
+
+
+
     private ARTrackedImageManager mImageManager;
 
-    private void Awake()
+    private void Start()
     {
         mainScreenButton.onClick.AddListener(() => { LoadScene("MainScreen"); });
         mImageManager = GetComponent<ARTrackedImageManager>();
-
-    }
-
-    void OnEnable()
-    {
         mImageManager.trackedImagesChanged += OnImagesChanged;
     }
 
-    void OnDisable()
+    private void OnDestroy()
     {
         mImageManager.trackedImagesChanged -= OnImagesChanged;
     }
@@ -57,5 +58,23 @@ public class ImageManager : MonoBehaviour
     }
 
     private void LoadScene(string name) => SceneManager.LoadScene(name);
+    bool isTextActive = true;
+    void Update()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("TitleText"))
+        {
+
+            if (isTextActive)
+            {
+                textVideoObject.SetActive(!isTextActive);
+                isTextActive = false;
+            }
+            else if (!isTextActive )
+            {
+                textVideoObject.SetActive(!isTextActive);
+                isTextActive = true;
+            }
+        }
+    }
 
 }
