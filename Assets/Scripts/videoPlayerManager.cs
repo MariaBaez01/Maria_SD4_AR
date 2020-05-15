@@ -46,16 +46,36 @@ public class videoPlayerManager : MonoBehaviour
                 vp.SetDirectAudioMute(0, !isMuted);
                 isMuted = true;
 
-                soundButton.image.sprite = musicOnImage;
+                //soundButton.image.sprite = musicOnImage;
             }
             else
             {
                 vp.SetDirectAudioMute(0, false);
                 isMuted = false;
-                soundButton.image.sprite = musicOffImage;
+                //soundButton.image.sprite = musicOffImage;
             }
 
 
+        }
+
+        for (var i = 0; i < Input.touchCount; ++i)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                if (Input.GetTouch(i).tapCount == 1)
+                {
+
+                    if (vp.isPlaying)
+                    {
+                        vp.Pause();
+                    }
+                    else
+                    {
+                        vp.Play();
+                    }
+
+                }
+            }
         }
 
     }
