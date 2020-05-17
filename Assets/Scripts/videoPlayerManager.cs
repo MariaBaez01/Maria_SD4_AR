@@ -75,6 +75,13 @@ public class videoPlayerManager : MonoBehaviour
                     }
 
                 }
+                else if (Input.GetTouch(i).tapCount == 2)
+                {
+
+                    vp.Stop();
+                    vp.Play();
+
+                }
             }
         }
 
