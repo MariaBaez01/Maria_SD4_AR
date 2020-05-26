@@ -31,6 +31,7 @@ public class videoPlayerManager : MonoBehaviour
 
     }
     bool isMuted = false;
+    
 
 
     void Update()
@@ -57,6 +58,7 @@ public class videoPlayerManager : MonoBehaviour
 
 
         }
+        
 
         for (var i = 0; i < Input.touchCount; ++i)
         {

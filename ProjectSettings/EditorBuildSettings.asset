@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScreen.unity
     guid: 9e917224a9084934cbca119b019335d2
   - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: c055a2c0af98f5e419fde2a021759753
+  - enabled: 1
     path: Assets/Scenes/CameraScene.unity
     guid: 31833147878fa4526a5e1e69db5f1ad1
   - enabled: 0
